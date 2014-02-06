@@ -7,11 +7,35 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 932px;
+            height: 170px;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
+    <form id="form1" runat="server" dir="rtl">
+    <div class="style1" style="z-index: 1">
+    <img runat="server" src="~/Images/mishloah.jpg" width="120" height="150" />
+    <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" 
+            BackColor="#336699" ViewStateMode="Disabled" 
+            style="height: 16px; width: 932px" BorderStyle="Solid" BorderWidth="3px" >
+        <DynamicHoverStyle BackColor="Lime" />
+        <Items>
+            <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home" Value="Home">
+            </asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Register.aspx" Text="Register" Value="Register"></asp:MenuItem>
+        </Items>
+    </asp:Menu>
 
+    <br />
+    <br />
+    <br />
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
