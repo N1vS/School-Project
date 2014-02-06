@@ -4,34 +4,18 @@
     <style type="text/css">
         .style1
         {
-            width: 39%;
             height: 221px;
-            margin-right: 0px;
             
         }
-        .style3
+        .style8
         {
-            width: 250px;
-        }
-        .style5
-        {
-            width: 250px;
-            height: 26px;
-        }
-        .style6
-        {
-            width: 145px;
-        }
-        .style7
-        {
-            width: 150px;
-            height: 26px;
+            width: 100%;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<p dir="rtl" runat="server" style="font-size:45">הרשמה</p>
-    <table class="style1" dir="rtl" >
+    <p id="P1" dir="rtl" runat="server" style="font-size:45;">הרשמה</p>
+    <table class="style8">
         <tr>
             <td class="style6">
                 שם משתמש :</td>
@@ -111,5 +95,7 @@
             </td>
         </tr>
     </table>
+
+    
 </asp:Content>
 
