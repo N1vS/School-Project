@@ -14,8 +14,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p id="P1" dir="rtl" runat="server" style="font-size:45;">הרשמה</p>
-    <table class="style8">
+    <p id="P1" dir="rtl" runat="server" style="font-size:70px;font-family:Petel">הרשמה</p>
+    <table class="style8" style="font-family:Arial">
         <tr>
             <td class="style6">
                 שם משתמש :</td>
@@ -91,7 +91,7 @@
             <td>
             </td>
             <td>
-                <asp:Button ID="ButtonSend" runat="server" Text="הרשם" />
+                <asp:Button ID="ButtonSend" runat="server" Text="הרשם" OnClick="ButtonSend_Click" />
             </td>
         </tr>
     </table>

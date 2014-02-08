@@ -77,9 +77,26 @@ public class CityService
         catch (OleDbException ex)
         {
             throw ex;
-        }
-        
+        } 
+    }
 
+    public int GetCenterIDByCityID(int CityID)
+    {
+        string sqlCommand = "SELECT CenterID FROM Cities WHERE CityID=" + CityID;
+        try
+        {
+            OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+            OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
+            int centerID;
+            myCon.Open();
+            centerID = Convert.ToInt32(cmd.ExecuteScalar());
+            myCon.Close();
+            return centerID;
+        }
+        catch (OleDbException ex)
+        {
+            throw ex;
+        } 
 
 
     }
