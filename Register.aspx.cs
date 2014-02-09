@@ -41,7 +41,15 @@ public partial class Register : System.Web.UI.Page
         CityService cs = new CityService();
         userCity.SetCenterID(cs.GetCenterIDByCityID(cityID));
 
-        string sqlCommand="INSERT INTO Clients VALUES('CityID="+cityID+",UserName="+userName+",Pass="+pass+",Phone="+phone+",Email="+email+",Street="+street+"');";//FIX it
-
+        OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+        OleDbCommand cmd = new OleDbCommand("SELECT * FROM Clients WHERE UserName='"+userName+"';", myCon);
+        myCon.Open();
+        if (cmd.ExecuteNonQuery() == 0)
+        {
+            string sqlCommand = "INSERT INTO Clients VALUES(CityID=" + cityID + ",UserName='" + userName + "',Pass='" + pass + "',Phone=" + phone + ",Email='" + email + "',Street='" + street + "');";
+            cmd.CommandText = sqlCommand;
+            cmd.ExecuteNonQuery();
+        }
+        myCon.Close();
     }
 }
