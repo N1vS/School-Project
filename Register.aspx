@@ -27,7 +27,7 @@
             <td class="style6">
                 סיסמה :</td>
             <td class="style3">
-                <asp:TextBox ID="TextBoxPass" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxPass" runat="server" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -35,7 +35,7 @@
                 אימות סיסמה :
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBoxPass2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxPass2" runat="server" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>

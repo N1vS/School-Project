@@ -46,7 +46,7 @@ public partial class Register : System.Web.UI.Page
         myCon.Open();
         if (cmd.ExecuteNonQuery() == 0)
         {
-            string sqlCommand = "INSERT INTO Clients VALUES(CityID=" + cityID + ",UserName='" + userName + "',Pass='" + pass + "',Phone=" + phone + ",Email='" + email + "',Street='" + street + "');";
+            string sqlCommand = "INSERT INTO Clients VALUES(CityID=" + cityID + ",UserName='" + userName + "',Pass='" + pass + "',Phone='" + phone + "',Email='" + email + "',Street='" + street + "');";
             cmd.CommandText = sqlCommand;
             cmd.ExecuteNonQuery();
         }
