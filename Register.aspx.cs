@@ -44,9 +44,9 @@ public partial class Register : System.Web.UI.Page
         OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
         OleDbCommand cmd = new OleDbCommand("SELECT * FROM Clients WHERE UserName='"+userName+"';", myCon);
         myCon.Open();
-        if (cmd.ExecuteNonQuery() == 0)
+        if (cmd.ExecuteScalar() == 0)
         {
-            string sqlCommand = "INSERT INTO Clients VALUES(CityID=" + cityID + ",UserName='" + userName + "',Pass='" + pass + "',Phone='" + phone + "',Email='" + email + "',Street='" + street + "');";
+            string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Street) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + street + "')";
             cmd.CommandText = sqlCommand;
             cmd.ExecuteNonQuery();
         }
