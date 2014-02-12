@@ -15,17 +15,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p id="P1" dir="rtl" runat="server" style="font-size:70px;font-family:Petel">הרשמה</p>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <table class="style8" style="font-family:Arial">
         <tr>
             <td class="style6">
-                שם משתמש :</td>
+                שם משתמש :<asp:Label ID="WrongUserName" runat="server" ForeColor="Red" Text="*" 
+                    Visible="False"></asp:Label>
+            </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxUserName" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUserName" runat="server" 
+                    ControlToValidate="TextBoxUserName" ErrorMessage="RequiredFieldValidator" 
+                    Visible="False">הכנס שם משתמש</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="style6">
-                סיסמה :</td>
+                סיסמה :<asp:Label ID="WrongPass" runat="server" ForeColor="Red" Text=" *" 
+                    Visible="False"></asp:Label>
+            </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPass" runat="server" TextMode="Password"></asp:TextBox>
             </td>
@@ -33,6 +41,8 @@
         <tr>
             <td class="style6">
                 אימות סיסמה :
+                <asp:Label ID="WrongPass2" runat="server" ForeColor="Red" Text="*" 
+                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPass2" runat="server" TextMode="Password"></asp:TextBox>
@@ -41,6 +51,8 @@
         <tr>
              <td class="style7">
                 אימייל :
+                 <asp:Label ID="WrongEmail" runat="server" ForeColor="Red" Text="*" 
+                     Visible="False"></asp:Label>
             </td>
             <td class="style5">
                 <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
@@ -50,6 +62,8 @@
         <tr>
             <td class="style6">
                 טלפון :
+                <asp:Label ID="WrongPhone" runat="server" ForeColor="Red" Text="*" 
+                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
@@ -74,6 +88,8 @@
         <tr>
             <td class="style6">
                 עיר :
+                <asp:Label ID="WrongCity" runat="server" ForeColor="Red" Text="*" 
+                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:DropDownList ID="DropDownListCities" runat="server" AutoPostBack="true"></asp:DropDownList>
@@ -82,6 +98,8 @@
         <tr>
             <td class="style6">
                 רחוב :
+                <asp:Label ID="WrongStreet" runat="server" ForeColor="Red" Text="*" 
+                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxStreet" runat="server"></asp:TextBox>
