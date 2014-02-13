@@ -56,8 +56,19 @@
 <body>
     <form id="form1" runat="server" dir="rtl">
     <div class="style1" dir="rtl" >
+    <div style="position:absolute;top:10px;left:15px;">
+    <%if (Session["UserName"] == null)
+      { %>
+    <a href="Login.aspx" >התחבר</a>
+    <a href="Register.aspx" >הרשם</a>
+    <%}
+      else
+      { %>
+      <a href="Logout.aspx">התנתק</a>
+    <%} %>
+    </div>
     <img runat="server" src="~/Images/mishloah.jpg" width="120" height="150"  />
-    <br /><br />
+    <br />
     <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" class="MenuStyle" ViewStateMode="Disabled"
             style="height: 16px; width: 932px">
         <DynamicHoverStyle BackColor="Lime" />

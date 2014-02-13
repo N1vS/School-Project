@@ -22,4 +22,10 @@ public partial class Login : System.Web.UI.Page
     {
         this.Login1.FailureText = "Failed to login";
     }
+    protected void Login1_LoggedIn(object sender, EventArgs e)
+    {
+        Session["UserName"] = this.Login1.UserName;
+        Session["UserDefiner"] = "User";
+        Response.Redirect("HomePage.aspx");
+    }
 }

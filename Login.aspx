@@ -9,7 +9,7 @@
         PasswordLabelText="סיסמה :" PasswordRequiredErrorMessage="הכנס סיסמה" 
         RememberMeText="זכור אותי לפעם הבאה" TitleText="התחברות" 
         UserNameLabelText="שם משתמש :" UserNameRequiredErrorMessage="הכנס שם משתמש" 
-        Width="398px">
+        Width="398px" onloggedin="Login1_LoggedIn">
     </asp:Login>
 </asp:Content>
 

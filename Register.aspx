@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="Register.aspx.cs" Inherits="Register" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .style1
         {
             height: 221px;
-            
         }
         .style8
         {
@@ -13,26 +13,26 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p id="P1" dir="rtl" runat="server" style="font-size:70px;font-family:Petel">הרשמה</p>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <p id="P1" dir="rtl" runat="server" style="font-size: 70px; font-family: Petel">
+        הרשמה</p>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    <table class="style8" style="font-family:Arial">
+    <table class="style8" style="font-family: Arial">
         <tr>
             <td class="style6">
-                שם משתמש :<asp:Label ID="WrongUserName" runat="server" ForeColor="Red" Text="*" 
-                    Visible="False"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUserName" runat="server" ControlToValidate="TextBoxUserName"
+                    ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                שם משתמש :
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxUserName" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUserName" runat="server" 
-                    ControlToValidate="TextBoxUserName" ErrorMessage="RequiredFieldValidator" 
-                    Visible="False">הכנס שם משתמש</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="style6">
-                סיסמה :<asp:Label ID="WrongPass" runat="server" ForeColor="Red" Text=" *" 
-                    Visible="False"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxPass"
+                    ErrorMessage="הכנס סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
+                סיסמה :
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPass" runat="server" TextMode="Password"></asp:TextBox>
@@ -40,30 +40,29 @@
         </tr>
         <tr>
             <td class="style6">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxPass2"
+                    ErrorMessage="הכנס אימות סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 אימות סיסמה :
-                <asp:Label ID="WrongPass2" runat="server" ForeColor="Red" Text="*" 
-                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPass2" runat="server" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>
-             <td class="style7">
+            <td class="style7">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxEmail"
+                    ErrorMessage="הכנס אימייל" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 אימייל :
-                 <asp:Label ID="WrongEmail" runat="server" ForeColor="Red" Text="*" 
-                     Visible="False"></asp:Label>
             </td>
             <td class="style5">
                 <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
-                
             </td>
         </tr>
         <tr>
             <td class="style6">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxPhone"
+                    ErrorMessage="הכנס טלפון" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 טלפון :
-                <asp:Label ID="WrongPhone" runat="server" ForeColor="Red" Text="*" 
-                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
@@ -88,18 +87,17 @@
         <tr>
             <td class="style6">
                 עיר :
-                <asp:Label ID="WrongCity" runat="server" ForeColor="Red" Text="*" 
-                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
-                <asp:DropDownList ID="DropDownListCities" runat="server" AutoPostBack="true"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListCities" runat="server">
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td class="style6">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxStreet"
+                    ErrorMessage="הכנס רחוב" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 רחוב :
-                <asp:Label ID="WrongStreet" runat="server" ForeColor="Red" Text="*" 
-                    Visible="False"></asp:Label>
             </td>
             <td class="style3">
                 <asp:TextBox ID="TextBoxStreet" runat="server"></asp:TextBox>
@@ -113,7 +111,4 @@
             </td>
         </tr>
     </table>
-
-    
 </asp:Content>
-

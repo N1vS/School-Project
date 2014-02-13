@@ -17,11 +17,15 @@ public partial class Register : System.Web.UI.Page
 
     public void PopulateCitiesDropDown()
     {
+
+
         CityService cs = new CityService();
         this.DropDownListCities.DataSource = cs.GetAllCities();
         this.DropDownListCities.DataTextField = "CityName";
         this.DropDownListCities.DataValueField = "CityID";
         this.DropDownListCities.DataBind();
+
+
     }
 
     protected void ButtonSend_Click(object sender, EventArgs e)
@@ -44,12 +48,13 @@ public partial class Register : System.Web.UI.Page
         OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
         OleDbCommand cmd = new OleDbCommand("SELECT * FROM Clients WHERE UserName='"+userName+"';", myCon);
         myCon.Open();
-        if (cmd.ExecuteScalar() == 0)
+        if (cmd.ExecuteScalar() == null)
         {
             string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Street) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + street + "')";
             cmd.CommandText = sqlCommand;
             cmd.ExecuteNonQuery();
         }
+        else Response.Write("<script type=\"javascript\" >Alert('Username already exists')</script>");
         myCon.Close();
     }
 }
