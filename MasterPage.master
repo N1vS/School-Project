@@ -50,6 +50,11 @@
             color: #cfdbe6;
             text-decoration: none;
         }
+        a
+        {
+          text-decoration:none;
+          color:Blue;   
+        }
 
     </style>
 </head>
@@ -64,6 +69,8 @@
     <%}
       else
       { %>
+       שלום <%=Session["UserName"].ToString() %>
+      <br />
       <a href="Logout.aspx">התנתק</a>
     <%} %>
     </div>
