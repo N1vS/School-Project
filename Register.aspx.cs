@@ -36,7 +36,7 @@ public partial class Register : System.Web.UI.Page
         string email = this.TextBoxEmail.Text;
         string phone = this.DropDownList1.Text + this.TextBoxPhone.Text;
         string city = this.DropDownListCities.Text;
-        string street = this.TextBoxStreet.Text;
+        string address = this.TextBoxAddress.Text;
         int cityID = Convert.ToInt32(this.DropDownListCities.SelectedValue);
 
         City userCity = new City();
@@ -50,11 +50,10 @@ public partial class Register : System.Web.UI.Page
         myCon.Open();
         if (cmd.ExecuteScalar() == null)
         {
-            string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Street) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + street + "')";
+            string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Address) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + address + "')";
             cmd.CommandText = sqlCommand;
             cmd.ExecuteNonQuery();
         }
-        else Response.Write("<script type=\"javascript\" >Alert('Username already exists')</script>");
         myCon.Close();
     }
 }

@@ -20,10 +20,22 @@ public partial class Login : System.Web.UI.Page
     }
     protected void Login1_LoginError(object sender, EventArgs e)
     {
-        this.Login1.FailureText = "Failed to login";
+        this.Login1.FailureText = "ההתחברות נכשלה";
     }
     protected void Login1_LoggedIn(object sender, EventArgs e)
     {
+        CheckBox mashu = (CheckBox)this.Login1.FindControl("RememberMe");
+
+        if (mashu.Checked)
+        {
+            HttpCookie myCookie = new HttpCookie("myCookie");
+            Response.Cookies.Remove("myCookies");
+            Response.Cookies.Add(myCookie);
+            myCookie.Values.Add("userName", this.Login1.UserName.ToString());
+            DateTime dtEXpiration = DateTime.Now.AddDays(10);
+            Response.Cookies["myCookie"].Expires = dtEXpiration;
+        }
+
         Session["UserName"] = this.Login1.UserName;
         Session["UserDefiner"] = "User";
         Response.Redirect("HomePage.aspx");
