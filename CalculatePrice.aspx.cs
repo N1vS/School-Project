@@ -36,31 +36,30 @@ public partial class CalculatePrice : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        bool urgent = this.CheckBoxUrgent.Checked;
         int collectingCenterID = int.Parse(this.DropDownListCollectingCities.SelectedValue);
         int destinationCenterID = int.Parse(this.DropDownListDestinationCities.SelectedValue);
-        int temp = destinationCenterID - collectingCenterID;
+        int sub = destinationCenterID - collectingCenterID;
+        int price=0;
         if (this.TextBoxWeight.Text != null)
         {
+
             int weight = Convert.ToInt32(this.TextBoxWeight.Text);
-            if (temp < 0)
-                temp *= -1;
-            temp += 1;
-            double price = temp * weight/2 ;
-            if (price < 30)
-                price = 30;
-            //switch (temp)
-            //{
-            //    case 0: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא "+price+" ש\"ח')</script>");
-            //        break;
-            //    case 1:
-            //    case -1: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 30 ש\"ח')</script>");
-            //        break;
-            //    case 2:
-            //    case -2: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 40 ש\"ח')</script>");
-            //        break;
-            //    default: Response.Write("<script type=\"text/javascript\">alert('קלט לא תקין')</script>");
-            //        break;
-            //}
+            switch (sub)
+            {
+                case 0: price =Convert.ToInt32(5*Math.Log(weight)+15);
+                    break;
+                case 1:
+                case -1: price =Convert.ToInt32( 5*Math.Log(weight)+20);
+                    break;
+                case 2:
+                case -2: price = Convert.ToInt32(5*Math.Log(weight)+30);
+                    break;
+                default:
+                    break;
+            }
+            if (urgent)
+                price =Convert.ToInt32(price*1.3);
             Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא " + price + " ש\"ח')</script>");
             PopulateCollectingCitiesDropDown();
             PopulateDestinationCitiesDropDown();

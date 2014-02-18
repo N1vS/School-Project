@@ -11,14 +11,27 @@ public partial class MakeOrder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        PopulateCitiesGridView();
+        PopulateDestinationCitiesDropDown();
     }
 
-    public void PopulateCitiesGridView()
+
+    public void PopulateDestinationCitiesDropDown()
     {
         CityService cs = new CityService();
-        DataSet ds = cs.GetCitiesAndCenters();
-        this.GridView1.DataSource = ds;
-        this.GridView1.DataBind();
+        this.DropDownListDestinationCities.DataSource = cs.GetCitiesAndCenters();
+        this.DropDownListDestinationCities.DataTextField = "CityName";
+        this.DropDownListDestinationCities.DataValueField = "CenterID";
+        this.DropDownListDestinationCities.DataBind();
+    }
+    protected void SubmitButton_Click(object sender, EventArgs e)
+    {
+
+        Response.Write("<script type=\"text/javascript\">if(confirm(\"אנא אשר את ביצוע השליחה\")==true){<%MakeTheOrder()%>}</script>");
+        
+    }
+    private void MakeTheOrder()
+    {
+
+
     }
 }
