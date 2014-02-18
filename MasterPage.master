@@ -1,11 +1,10 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
         .style1
@@ -14,80 +13,84 @@
         }
         .MenuStyle
         {
-           direction:rtl;
-           
+            direction: rtl;
         }
         .MenuStyle ul
         {
-           list-style: none;
-           margin: 0px;
-           padding: 0px;
-           width: auto;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            width: auto;
         }
-
+        
         .MenuStyle ul li a, .MenuStyle ul li a:visited
-       {
-           background-color: #001c48;
-           color: #cbf9fe;
-           display:block;
-           line-height: 1.35em;
-           padding: 4px 20px;
-           text-decoration: none;
-           white-space: nowrap;
-           border-radius:5px;
+        {
+            background-color: #001c48;
+            color: #cbf9fe;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+            border-radius: 5px;
         }
-
+        
         .MenuStyle ul li a:hover
         {
             background-color: #a8dbf7;
             color: #034a7e;
             text-decoration: none;
         }
-
+        
         .MenuStyle ul li a:active
         {
             background-color: #3399ff;
             color: #cfdbe6;
             text-decoration: none;
         }
-
     </style>
 </head>
 <body>
     <form id="form1" runat="server" dir="rtl">
-    <div class="style1" dir="rtl" >
-    <div style="position:absolute;top:10px;left:15px;">
-    <%if (Session["UserName"] == null)
-      { %>
-    <a href="Login.aspx" >התחבר</a>
-    <a href="Register.aspx" >הרשם</a>
-    <%}
-      else
-      { %>
-      שלום <%=Session["UserName"] %>
-      <br />
-      <a href="Logout.aspx">התנתק</a>
-    <%} %>
-    </div>
-    <img runat="server" src="~/Images/mishloah.jpg" width="120" height="150"  />
-    <br />
-    <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" class="MenuStyle" ViewStateMode="Disabled"
-            style="height: 16px; width: 932px">
-        <DynamicHoverStyle BackColor="Lime" />
-        <Items>
-            <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home" Value="Home">
-            </asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/MakeOrder.aspx" Text="Make an order" Value="Order"></asp:MenuItem>
-        </Items>
-    </asp:Menu>
-
-    <br />
-    <br />
-    <br />
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-
+    <div class="style1" dir="rtl">
+        <div style="position: absolute; top: 10px; left: 15px;">
+            <%if (Session["UserName"] == null)
+              { %>
+            <a href="Login.aspx">התחבר</a> <a href="Register.aspx">הרשם</a>
+            <%}
+              else
+              { %>
+            שלום
+            <%=Session["UserName"] %>
+            <br />
+            <a href="Logout.aspx">התנתק</a>
+            <%} %>
+        </div>
+        <img runat="server" src="~/Images/mishloah.jpg" width="120" height="150" />
+        <br />
+        <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" class="MenuStyle"
+            ViewStateMode="Disabled" Style="height: 16px; width: 932px" 
+            Font-Names="Elephant">
+            <DynamicHoverStyle BackColor="Lime" />
+            <Items>
+                <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="דף הבית" Value="Home"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/MakeOrder.aspx" Text="הזמן משלוח" Value="Order">
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/CalculatePrice.aspx" Text="חשב מחיר משלוח" 
+                    Value="Calculate Price"></asp:MenuItem>
+            </Items>
+        </asp:Menu>
+        <br />
+        <br />
+        <br />
+        <div style="position: relative; background-color:#CEFDF3; border-radius: 200px">
+        <br />
+            <center>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </center>
+            <br />
+        </div>
     </div>
     </form>
 </body>

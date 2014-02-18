@@ -9,25 +9,27 @@
         }
         .style8
         {
-            width: 100%;
+            width: 38%;
         }
         .style9
         {
-            width: 250px;
+            width: 222px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <p id="P1" dir="rtl" runat="server" style="font-size: 70px; font-family: Petel">
         הרשמה</p>
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    <table class="style8" style="font-family: Arial">
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+        DisplayMode="List" />
+    
+    <table class="style8" style="font-family: Arial;margin-left: 0px;" >
         <tr>
-            <td class="style9">
-                <asp:RangeValidator ID="RangeValidator1" runat="server" 
+            <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" 
                     ControlToValidate="TextBoxUserName" Display="Dynamic" 
-                    ErrorMessage="הכנס שם משתמש בן 6-24 תווים" ForeColor="Red" MaximumValue="24" 
-                    MinimumValue="6">*</asp:RangeValidator>
+                    ErrorMessage="הכנס שם משתמש בן 4-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{4,24}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUserName" runat="server" ControlToValidate="TextBoxUserName"
                     ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
                 שם משתמש :
@@ -38,10 +40,14 @@
         </tr>
         <tr>
             <td class="style9">
-                <asp:RangeValidator ID="RangeValidator2" runat="server" 
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="TextBoxPass" Display="Dynamic" 
-                    ErrorMessage="הכנס סיסמה בת 6-24 תווים" ForeColor="Red" MaximumValue="6" 
-                    MinimumValue="24">*</asp:RangeValidator>
+                    ErrorMessage="הכנס סיסמה בת 6-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{6,24}">*</asp:RegularExpressionValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ControlToCompare="TextBoxPass" ControlToValidate="TextBoxPass2" 
+                    Display="Dynamic" ErrorMessage="הסיסמה ואימות הסיסמה אינם תואמים" 
+                    ForeColor="Red">*</asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxPass"
                     ErrorMessage="הכנס סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 סיסמה :
@@ -52,10 +58,10 @@
         </tr>
         <tr>
             <td class="style9">
-                <asp:RangeValidator ID="RangeValidator3" runat="server" 
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
                     ControlToValidate="TextBoxPass2" Display="Dynamic" 
-                    ErrorMessage="הכנס אימות סיסמה בן 6-24 תווים" ForeColor="Red" MaximumValue="6" 
-                    MinimumValue="24">*</asp:RangeValidator>
+                    ErrorMessage="הכנס אימות סיסמה בת 6-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{6,24}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxPass2"
                     ErrorMessage="הכנס אימות סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 אימות סיסמה :
@@ -82,7 +88,8 @@
             <td class="style9">
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="TextBoxPhone" Display="Dynamic" 
-                    ErrorMessage="הכנס טלפון תקין" ForeColor="Red" ValidationExpression="d{7}">*</asp:RegularExpressionValidator>
+                    ErrorMessage="הכנס טלפון תקין - קידומת + שבע מספרים" ForeColor="Red" 
+                    ValidationExpression="\d{7}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxPhone"
                     ErrorMessage="הכנס טלפון" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 טלפון :
@@ -117,7 +124,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style9">
+            <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" 
+                    ControlToValidate="TextBoxAddress" Display="Dynamic" 
+                    ErrorMessage="הכנס כתובת בת 4-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{4,24}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxAddress"
                     ErrorMessage="הכנס רחוב" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 כתובת : (רחוב + מספר)</td>
@@ -133,4 +144,5 @@
             </td>
         </tr>
     </table>
+    
 </asp:Content>

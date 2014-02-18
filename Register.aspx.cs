@@ -23,9 +23,8 @@ public partial class Register : System.Web.UI.Page
         this.DropDownListCities.DataSource = cs.GetAllCities();
         this.DropDownListCities.DataTextField = "CityName";
         this.DropDownListCities.DataValueField = "CityID";
+
         this.DropDownListCities.DataBind();
-
-
     }
 
     protected void ButtonSend_Click(object sender, EventArgs e)

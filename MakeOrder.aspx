@@ -15,5 +15,16 @@
     { %>
     חקדחןכדםםןיקעםןעקשךל
      <%} %>
+     <br /><br /><br />
+     לפניך מוצגת רשימת הערים בה החברה פועלת
+     <br /><br />
+
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+    
+        <Columns>
+            <asp:BoundField DataField="CityName" HeaderText="עיר" />
+            <asp:BoundField DataField="CenterName" HeaderText="איזור" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>
 
