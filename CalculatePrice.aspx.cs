@@ -39,31 +39,43 @@ public partial class CalculatePrice : System.Web.UI.Page
         int collectingCenterID = int.Parse(this.DropDownListCollectingCities.SelectedValue);
         int destinationCenterID = int.Parse(this.DropDownListDestinationCities.SelectedValue);
         int temp = destinationCenterID - collectingCenterID;
-        if (this.TextBoxWeight.Text != null)
+        try
         {
-            int weight = Convert.ToInt32(this.TextBoxWeight.Text);
-            if (temp < 0)
-                temp *= -1;
-            temp += 1;
-            double price = temp * weight/2 ;
-            if (price < 30)
-                price = 30;
-            //switch (temp)
-            //{
-            //    case 0: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא "+price+" ש\"ח')</script>");
-            //        break;
-            //    case 1:
-            //    case -1: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 30 ש\"ח')</script>");
-            //        break;
-            //    case 2:
-            //    case -2: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 40 ש\"ח')</script>");
-            //        break;
-            //    default: Response.Write("<script type=\"text/javascript\">alert('קלט לא תקין')</script>");
-            //        break;
-            //}
-            Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא " + price + " ש\"ח')</script>");
-            PopulateCollectingCitiesDropDown();
-            PopulateDestinationCitiesDropDown();
+            if (this.TextBoxWeight.Text != null)
+            {
+                int weight = Convert.ToInt32(this.TextBoxWeight.Text);
+                if (temp < 0)
+                    temp *= -1;
+                temp += 1;
+                double price;
+                if (this.CheckBoxUrgent.Checked)
+                {
+                    price = 5 * Math.Log(weight) + 20 + (temp * 10);
+                }
+                else
+                {
+                    price = 5 * Math.Log(weight) + 10 + (temp * 10);
+                }
+                if (price < 20)
+                    price = 20;
+                //switch (temp)
+                //{
+                //    case 0: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא "+price+" ש\"ח')</script>");
+                //        break;
+                //    case 1:
+                //    case -1: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 30 ש\"ח')</script>");
+                //        break;
+                //    case 2:
+                //    case -2: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 40 ש\"ח')</script>");
+                //        break;
+                //    default: Response.Write("<script type=\"text/javascript\">alert('קלט לא תקין')</script>");
+                //        break;
+                //}
+                Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא " + price + " ש\"ח')</script>");
+                PopulateCollectingCitiesDropDown();
+                PopulateDestinationCitiesDropDown();
+            }
         }
+        catch { Response.Write("<script type=\"text/javascript\">alert('קלט לא תקין')</script>"); }
     }
 }
