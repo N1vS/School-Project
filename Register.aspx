@@ -39,6 +39,32 @@
             </td>
         </tr>
         <tr>
+         <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" 
+                    ControlToValidate="TextBoxFirstName" Display="Dynamic" 
+                    ErrorMessage="הכנס שם משתמש עם אותיות בלבד" ForeColor="Red" 
+                    ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxFirstName"
+                    ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                שם משתמש :
+            </td>
+            <td class="style3">
+                <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox>
+            </td>
+             <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" 
+                    ControlToValidate="TextBoxLastName" Display="Dynamic" 
+                    ErrorMessage="הכנס שם משפחה עם אותיות בלבד" ForeColor="Red" 
+                    ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBoxLastName"
+                    ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                שם משתמש :
+            </td>
+            <td class="style3">
+                <asp:TextBox ID="TextBoxLastName" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
             <td class="style9">
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="TextBoxPass" Display="Dynamic" 

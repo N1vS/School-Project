@@ -6,41 +6,36 @@ using System.Data;
 using System.Data.OleDb;
 
 /// <summary>
-/// Summary description for UserService
+/// Summary description for WorkerService
 /// </summary>
-public class UserService
+public class WorkerService
 {
-	public UserService()
+	public WorkerService()
 	{
-		
-	}
 
-    public string ValidateUser(string UserName, string Password)
+	}
+    public string ValidateWorker(string workerName, string Password)
     {
         try
         {
-            string sqlCommand = "SELECT FirstName FROM Clients WHERE UserName='" + UserName + "' AND Pass='" + Password + "'";
+            string sqlCommand = "SELECT FirstName FROM Workers WHERE WorkerName='" + workerName + "' AND Pass='" + Password + "'";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
             myCon.Open();
             string name = cmd.ExecuteScalar().ToString();
-            if (name!=null)
+            if (name != null)
             {
                 myCon.Close();
                 return name;
             }
             myCon.Close();
             return null;
-            
+
         }
         catch (OleDbException ex)
         {
             throw ex;
         }
-        
-
 
     }
-
-
 }

@@ -19,7 +19,7 @@
     <asp:TextBox ID="TextBoxWeight" runat="server" />
     <br /><br />
     האם המשלוח דחוף?
-    <asp:CheckBox ID="CheckBoxUrgent" runat="server"/>
+    <asp:CheckBox ID="CheckBoxUrgent" runat="server" />
     <br /><br />
     <asp:Button ID="Button1" runat="server" Text="חשב" onclick="Button1_Click" />
 </asp:Content>
