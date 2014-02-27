@@ -125,7 +125,7 @@
                 <asp:Label runat="server" ID="LabelMakaf" Text="-"></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server">
                     <asp:ListItem Selected="True">02</asp:ListItem>
-                    <asp:ListItem Value="03">03</asp:ListItem>
+                    <asp:ListItem>03</asp:ListItem>
                     <asp:ListItem>04</asp:ListItem>
                     <asp:ListItem>08</asp:ListItem>
                     <asp:ListItem>09</asp:ListItem>

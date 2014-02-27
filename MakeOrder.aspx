@@ -4,9 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <%if (Session["UserName"] == null)
+    <%if (Session["UserName"] == null||Session["UserDefiner"]=="Worker")
       { %>
-    אנא התחבר על מנת לקבל את שירותינו
+    אנא התחבר כמשתמש על מנת לקבל את שירותינו
     <br />
     <br />
     <br />

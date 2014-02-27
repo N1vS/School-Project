@@ -30,4 +30,21 @@ public partial class Login : System.Web.UI.Page
         Session["UserDefiner"] = "User";
         Response.Redirect("HomePage.aspx");
     }
+    protected void Login2_Authenticate(object sender, AuthenticateEventArgs e)
+    {
+        WorkerService ws = new WorkerService();
+        Session["UserFirstName"] = ws.ValidateWorker(this.Login2.UserName, this.Login2.Password);
+        if (Session["UserFirstName"] != null)
+            e.Authenticated = true;
+    }
+    protected void Login2_LoginError(object sender, EventArgs e)
+    {
+        this.Login2.FailureText = "ההתחברות נכשלה";
+    }
+    protected void Login2_LoggedIn(object sender, EventArgs e)
+    {
+        Session["UserName"] = this.Login2.UserName;
+        Session["UserDefiner"] = "Worker";
+        Response.Redirect("HomePage.aspx");
+    }
 }

@@ -25,13 +25,7 @@ public partial class MakeOrder : System.Web.UI.Page
     }
     protected void ButtonSubmit_Click(object sender, EventArgs e)
     {
-
-        Response.Write("<script type=\"text/javascript\">if(confirm(\"אנא אשר את ביצוע השליחה\")==true){<%MakeTheOrder()%>}</script>");
-        
-    }
-    private void MakeTheOrder()
-    {
-
-
+        string address = this.TextBoxAddress.Text;
+        int clientID=
     }
 }

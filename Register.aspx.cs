@@ -33,7 +33,7 @@ public partial class Register : System.Web.UI.Page
         string pass = this.TextBoxPass.Text;
         string passVerification = this.TextBoxPass2.Text;
         string email = this.TextBoxEmail.Text;
-        string phone = this.DropDownList1.Text + this.TextBoxPhone.Text;
+        string phone = this.DropDownList1.SelectedItem + this.TextBoxPhone.Text;
         string city = this.DropDownListCities.Text;
         string address = this.TextBoxAddress.Text;
         int cityID = Convert.ToInt32(this.DropDownListCities.SelectedValue);
