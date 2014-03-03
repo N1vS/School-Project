@@ -6,7 +6,8 @@
 לפניך מוצגת רשימה של הזמנות זמינות, בחר הזמנה אשר אתה רוצה לבצע.
 <br /><br />
 <asp:GridView runat="server" ID="GridViewAvailableOrders" 
-        AutoGenerateColumns="False">
+        AutoGenerateColumns="False" 
+        onrowcommand="GridViewAvailableOrders_RowCommand">
     <Columns>
         <asp:BoundField DataField="CollectingCityName" HeaderText="עיר איסוף" />
         <asp:BoundField DataField="CollectingAddress" HeaderText="כתובת איסוף" />

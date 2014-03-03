@@ -31,4 +31,12 @@ public partial class WorkerOrders : System.Web.UI.Page
         this.GridViewInProgressOrders.DataSource = os.GetOrdersForWorker(Convert.ToInt32(Session["WorkerID"]));
         this.GridViewInProgressOrders.DataBind();
     }
+    protected void GridViewAvailableOrders_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        //if (e.CommandName == "ApplyOrder")
+        //{
+        //    int workerID = Convert.ToInt32(Session["WorkerID"]);
+        //    string sqlCommand="UPDATE Orders (WorkerID,'Status') VALUES ("+workerID+",'InProgress' WHERE 
+        //}
+    }
 }
