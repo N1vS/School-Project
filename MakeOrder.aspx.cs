@@ -26,6 +26,5 @@ public partial class MakeOrder : System.Web.UI.Page
     protected void ButtonSubmit_Click(object sender, EventArgs e)
     {
         string address = this.TextBoxAddress.Text;
-        int clientID=
     }
 }

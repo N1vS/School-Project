@@ -33,8 +33,8 @@ public partial class Login : System.Web.UI.Page
     protected void Login2_Authenticate(object sender, AuthenticateEventArgs e)
     {
         WorkerService ws = new WorkerService();
-        Session["UserFirstName"] = ws.ValidateWorker(this.Login2.UserName, this.Login2.Password);
-        if (Session["UserFirstName"] != null)
+        Session["WorkerID"] = ws.ValidateWorker(this.Login2.UserName, this.Login2.Password);
+        if (Session["WorkerID"] != null)
             e.Authenticated = true;
     }
     protected void Login2_LoginError(object sender, EventArgs e)

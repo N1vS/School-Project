@@ -14,22 +14,22 @@ public class WorkerService
 	{
 
 	}
-    public string ValidateWorker(string workerName, string Password)
+    public int ValidateWorker(string workerName, string Password)
     {
         try
         {
-            string sqlCommand = "SELECT FirstName FROM Workers WHERE WorkerName='" + workerName + "' AND Pass='" + Password + "'";
+            string sqlCommand = "SELECT WorkerID FROM Workers WHERE WorkerName='" + workerName + "' AND Pass='" + Password + "'";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
             myCon.Open();
-            string name = cmd.ExecuteScalar().ToString();
+            int name = Convert.ToInt32(cmd.ExecuteScalar());
             if (name != null)
             {
                 myCon.Close();
                 return name;
             }
             myCon.Close();
-            return null;
+            return 0;
 
         }
         catch (OleDbException ex)

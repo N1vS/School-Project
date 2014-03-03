@@ -54,14 +54,14 @@
     <form id="form1" runat="server" dir="rtl">
     <div class="style1" dir="rtl">
         <div style="position: absolute; top: 10px; left: 15px;">
-            <%if (Session["UserFirstName"] == null)
+            <%if (Session["UserName"] == null)
               { %>
             <a href="Login.aspx">התחבר</a> <a href="Register.aspx">הרשם</a>
             <%}
               else
               { %>
             שלום
-            <%=Session["UserFirstName"] %>
+            <%=Session["UserName"] %>
             <br />
             <a href="Logout.aspx">התנתק</a>
             <%} %>
