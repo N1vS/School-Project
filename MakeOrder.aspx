@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <%if (Session["UserName"] == null||Session["UserDefiner"]=="Worker")
+    <%if (Session["UserDefiner"]!="User")
       { %>
     אנא התחבר כמשתמש על מנת לקבל את שירותינו
     <br />
@@ -30,6 +30,16 @@
     הכנס את כתובת היעד
     <br />
     <asp:TextBox ID="TextBoxAddress" runat="server">
+    </asp:TextBox>
+    <br /><br />
+    הכנס את תיאור הפריט
+    <br />
+    <asp:TextBox ID="TextBoxItemDescription" runat="server">
+    </asp:TextBox>
+    <br /><br />
+    הכנס את משקל הפריט
+    <br />
+    <asp:TextBox ID="TextBoxItemWeight" runat="server">
     </asp:TextBox>
     <br /><br />
     האם המשלוח דחוף?(תוספת תשלום)

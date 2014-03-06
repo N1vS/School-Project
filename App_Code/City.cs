@@ -11,7 +11,7 @@ using System.Data.OleDb;
 public class City
 {
     private int cityID, centerID;
-    private string cityName;
+    private string cityName, centerName;
 
 
 	public City()
@@ -25,7 +25,13 @@ public class City
         this.centerID = CenterID;
         this.cityName = CityName;
     }
-
+    public City(int CityID)
+    {
+        this.cityID = CityID;
+        CityService cs = new CityService();
+        this.cityName = cs.GetCityByID(CityID);
+        this.centerID = cs.GetCenterIDByCityID(CityID);
+    }
     public string GetCenterName()
     {
         try
@@ -50,6 +56,7 @@ public class City
     }
 
     #region Properties
+
     public int GetCityID() { return this.cityID; }
     public void SetCityID(int CityID) { this.cityID = CityID; }
 
@@ -58,6 +65,8 @@ public class City
 
     public string GetCityName() { return this.cityName; }
     public void SetCityName(string Name) { this.cityName = Name; }
+
+
     #endregion
 
 }

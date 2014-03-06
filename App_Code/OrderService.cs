@@ -22,7 +22,7 @@ public class OrderService
         try
         {
             DataSet ds=new DataSet();
-            string sqlCommand = "SELECT * FROM Orders WHERE Status='New'";
+            string sqlCommand = "SELECT * FROM Orders WHERE Status='New';";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
             myCon.Open();
@@ -63,7 +63,7 @@ public class OrderService
         try
         {
             DataSet ds = new DataSet();
-            string sqlCommand = "SELECT * FROM Orders WHERE Status='Done' AND WorkerID='" + workerID + "'";
+            string sqlCommand = "SELECT * FROM Orders WHERE Status='Done' AND WorkerID=" + workerID + ";";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
             myCon.Open();
@@ -71,7 +71,6 @@ public class OrderService
             adapter.Fill(ds);
             myCon.Close();
             return ds;
-
         }
         catch (OleDbException ex)
         {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.OleDb;
+using System.Data;
 
 public partial class Login : System.Web.UI.Page
 {
@@ -16,9 +18,13 @@ public partial class Login : System.Web.UI.Page
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
         UserService us = new UserService();
-        Session["UserFirstName"] = us.ValidateUser(this.Login1.UserName, this.Login1.Password);
-        if (Session["UserFirstName"] != null)
+        DataSet ds = us.ValidateUser(this.Login1.UserName, this.Login1.Password);
+        if (ds != null)
+        {
             e.Authenticated = true;
+            Session["UserName"] = this.Login1.UserName;
+            Session["UserID"] = ds.Tables[0].Rows[0]["ClientID"];
+        }
     }
     protected void Login1_LoginError(object sender, EventArgs e)
     {
