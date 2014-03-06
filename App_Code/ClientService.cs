@@ -6,37 +6,32 @@ using System.Data;
 using System.Data.OleDb;
 
 /// <summary>
-/// Summary description for UserService
+/// Summary description for ClientService
 /// </summary>
-public class UserService
+public class ClientService
 {
-	public UserService()
+	public ClientService()
 	{
-		
 	}
-
-    public DataSet ValidateUser(string UserName, string Password)
+    public DataSet GetClientDetailsByID(int clientID)
     {
         try
         {
             DataSet ds = new DataSet();
-            string sqlCommand = "SELECT * FROM Clients WHERE UserName='" + UserName + "' AND Pass='" + Password + "'";
+            string sqlCommand = "SELECT * FROM Clients WHERE ClientID=" + clientID + ";";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
-            OleDbDataAdapter myAdapter = new OleDbDataAdapter(cmd);
             myCon.Open();
-            myAdapter.Fill(ds);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+            adapter.Fill(ds);
+            myCon.Close();
             return ds;
-            
         }
         catch (OleDbException ex)
         {
             throw ex;
         }
-        
 
 
     }
-
-
 }

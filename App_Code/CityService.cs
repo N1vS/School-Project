@@ -41,14 +41,14 @@ public class CityService
     {
         try
         {
+            
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
-            OleDbCommand cmd = new OleDbCommand("GetCityByID", myCon); 
+            OleDbCommand cmd = new OleDbCommand("GetCityByID", myCon);
             cmd.CommandType = CommandType.StoredProcedure;
-            OleDbParameter parameter = new OleDbParameter("CityID", OleDbType.Integer);
+            OleDbParameter parameter=new OleDbParameter();
             parameter.Direction = ParameterDirection.InputOutput;
             parameter.Value = CityID;
-            cmd.Parameters.Add(parameter);
-            DataSet ds = new DataSet();
+            parameter = cmd.Parameters.Add("@CityID", OleDbType.Integer);
             myCon.Open();
             string name = cmd.ExecuteScalar().ToString();
             myCon.Close();
