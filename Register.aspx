@@ -42,10 +42,10 @@
          <td class="style9">            
             <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" 
                     ControlToValidate="TextBoxFirstName" Display="Dynamic" 
-                    ErrorMessage="הכנס שם משתמש עם אותיות בלבד" ForeColor="Red" 
+                    ErrorMessage="הכנס שם פרטי עם אותיות בלבד" ForeColor="Red" 
                     ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxFirstName"
-                    ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                    ErrorMessage="הכנס שם פרטי" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
                 שם פרטי :
             </td>
             <td class="style3">
@@ -59,7 +59,7 @@
                     ErrorMessage="הכנס שם משפחה עם אותיות בלבד" ForeColor="Red" 
                     ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBoxLastName"
-                    ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                    ErrorMessage="הכנס שם משפחה" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
                 שם משפחה :
             </td>
             <td class="style3">
@@ -166,10 +166,16 @@
         </tr>
         <tr>
             <td class="style9">
+            <asp:CheckBox ID="CheckBoxAgreement" runat="server" />
+            אישרתי את
+            <a href="Agreement.aspx">כללי האתר ותנאי החברה</a>
+            בנוגע לשימוש באתר
             </td>
-            <td>
-                <asp:Button ID="ButtonSend" runat="server" Text="הרשם" OnClick="ButtonSend_Click" />
-            </td>
+        </tr>
+        <tr>
+        <td class="style8">
+            <asp:Button ID="ButtonSend" runat="server" Text="הרשם" OnClick="ButtonSend_Click" />
+        </td>
         </tr>
     </table>
     

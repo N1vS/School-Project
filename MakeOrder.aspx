@@ -28,7 +28,7 @@
     <asp:DropDownList ID="DropDownListDestinationCities" runat="server">
     </asp:DropDownList>
     <br /><br />
-    הכנס את כתובת היעד
+    הכנס את הכתובת אליה תרצה לשלוח (רחוב + מספר)
     <br />
     <asp:TextBox ID="TextBoxAddress" runat="server">
     </asp:TextBox>

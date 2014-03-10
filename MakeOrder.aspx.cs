@@ -12,9 +12,16 @@ public partial class MakeOrder : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         PopulateDestinationCitiesDropDown();
+        PopulateCitiesGridView();
     }
 
-
+    public void PopulateCitiesGridView()
+    {
+        CityService cs = new CityService();
+        DataSet ds = cs.GetCitiesAndCenters();
+        this.GridView1.DataSource = ds;
+        this.GridView1.DataBind();
+    }
     public void PopulateDestinationCitiesDropDown()
     {
         CityService cs = new CityService();
@@ -25,6 +32,7 @@ public partial class MakeOrder : System.Web.UI.Page
     }
     protected void ButtonSubmit_Click(object sender, EventArgs e)
     {
+        //השגת הנתונים לגבי המשתמש
         int clientID = Convert.ToInt32(Session["UserID"]);
 
         Client orderingClient = new Client(clientID);
@@ -60,9 +68,15 @@ public partial class MakeOrder : System.Web.UI.Page
         }
         if (price < 20)
             price = 20;
+        int roundedPrice = Convert.ToInt32(price);
+        string sqlCommand = "INSERT INTO Orders (CollectingCityID,CollectingCityName,CollectingAddress,OrderingDate,DestinationCityID,DestinationCityName,DestinationAddress,DestinationDate,Item,ItemWeight,WorkerID,ClientID,Price,Status) VALUES (" + collectingCityID + ",'" + collectingCityName + "','" + collectingAddress + "','" + date + "'," + destinationCityID + ",'" + destinationCityName + "','" + destinationAddress + "','" + destinationDate + "','" + item + "'," + itemWeight + ",0," + clientID + "," + roundedPrice + ",'New');";
 
-        string sqlCommand = "INSERT INTO Orders (CollectingCityID,CollectingCityName,CollectingAddress,OrderingDate,DestinationCityID,DestinationCitName,DestinationAddress,DestinationDate,Item,ItemWeight,WorkerID,ClientID,Price,Status) VALUES (" + collectingCityName + ",'" + collectingCityName + "','" + collectingAddress + "','" + date + "'," + destinationCityID + ",'" + destinationCityName + "','" + destinationAddress + "','" + destinationDate + "','" + item + "'," + itemWeight + ",0," + clientID + "," + price + ",'New';";
-
+        OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+        OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
+        myCon.Open();
+        cmd.ExecuteNonQuery();
+        myCon.Close();
+        Response.Redirect("HomePage.aspx");
 
     }
 }
