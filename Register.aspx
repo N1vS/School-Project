@@ -9,17 +9,27 @@
         }
         .style8
         {
-            width: 100%;
+            width: 38%;
+        }
+        .style9
+        {
+            width: 222px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <p id="P1" dir="rtl" runat="server" style="font-size: 70px; font-family: Petel">
         הרשמה</p>
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    <table class="style8" style="font-family: Arial">
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+        DisplayMode="List" />
+    
+    <table class="style8" style="font-family: Arial;margin-left: 0px;" >
         <tr>
-            <td class="style6">
+            <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" 
+                    ControlToValidate="TextBoxUserName" Display="Dynamic" 
+                    ErrorMessage="הכנס שם משתמש בן 4-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{4,24}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUserName" runat="server" ControlToValidate="TextBoxUserName"
                     ErrorMessage="הכנס שם משתמש" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
                 שם משתמש :
@@ -29,7 +39,43 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
+         <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" 
+                    ControlToValidate="TextBoxFirstName" Display="Dynamic" 
+                    ErrorMessage="הכנס שם פרטי עם אותיות בלבד" ForeColor="Red" 
+                    ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxFirstName"
+                    ErrorMessage="הכנס שם פרטי" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                שם פרטי :
+            </td>
+            <td class="style3">
+                <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox>
+            </td>
+            </tr>
+            <tr>
+             <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" 
+                    ControlToValidate="TextBoxLastName" Display="Dynamic" 
+                    ErrorMessage="הכנס שם משפחה עם אותיות בלבד" ForeColor="Red" 
+                    ValidationExpression="[\w]">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBoxLastName"
+                    ErrorMessage="הכנס שם משפחה" ForeColor="Red" Display="Dynamic">  *</asp:RequiredFieldValidator>
+                שם משפחה :
+            </td>
+            <td class="style3">
+                <asp:TextBox ID="TextBoxLastName" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="style9">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                    ControlToValidate="TextBoxPass" Display="Dynamic" 
+                    ErrorMessage="הכנס סיסמה בת 6-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{6,24}">*</asp:RegularExpressionValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ControlToCompare="TextBoxPass" ControlToValidate="TextBoxPass2" 
+                    Display="Dynamic" ErrorMessage="הסיסמה ואימות הסיסמה אינם תואמים" 
+                    ForeColor="Red">*</asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxPass"
                     ErrorMessage="הכנס סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 סיסמה :
@@ -39,7 +85,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
+            <td class="style9">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
+                    ControlToValidate="TextBoxPass2" Display="Dynamic" 
+                    ErrorMessage="הכנס אימות סיסמה בת 6-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{6,24}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxPass2"
                     ErrorMessage="הכנס אימות סיסמה" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 אימות סיסמה :
@@ -49,7 +99,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style7">
+            <td class="style9">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="TextBoxEmail" Display="Dynamic" 
+                    ErrorMessage="הכנס אימייל תקין" ForeColor="Red" 
+                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxEmail"
                     ErrorMessage="הכנס אימייל" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 אימייל :
@@ -59,7 +113,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
+            <td class="style9">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                    ControlToValidate="TextBoxPhone" Display="Dynamic" 
+                    ErrorMessage="הכנס טלפון תקין - קידומת + שבע מספרים" ForeColor="Red" 
+                    ValidationExpression="\d{7}">*</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxPhone"
                     ErrorMessage="הכנס טלפון" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 טלפון :
@@ -69,7 +127,7 @@
                 <asp:Label runat="server" ID="LabelMakaf" Text="-"></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server">
                     <asp:ListItem Selected="True">02</asp:ListItem>
-                    <asp:ListItem Value="03">03</asp:ListItem>
+                    <asp:ListItem>03</asp:ListItem>
                     <asp:ListItem>04</asp:ListItem>
                     <asp:ListItem>08</asp:ListItem>
                     <asp:ListItem>09</asp:ListItem>
@@ -85,7 +143,7 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
+            <td class="style9">
                 עיר :
             </td>
             <td class="style3">
@@ -94,21 +152,37 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxStreet"
+            <td class="style9">            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" 
+                    ControlToValidate="TextBoxAddress" Display="Dynamic" 
+                    ErrorMessage="הכנס כתובת בת 4-24 תווים - אותיות ומספרים בלבד" ForeColor="Red" 
+                    ValidationExpression="[\d\w]{4,24}">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxAddress"
                     ErrorMessage="הכנס רחוב" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
-                רחוב :
-            </td>
+                כתובת : (רחוב + מספר)</td>
             <td class="style3">
-                <asp:TextBox ID="TextBoxStreet" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxAddress" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <TD>
+        &nbsp
+        </TD>
+        <tr>
+            <td class="style9">
+            <asp:CheckBox ID="CheckBoxAgreement" runat="server" />
+            אישרתי את
+            <a href="Agreement.aspx">כללי האתר</a>
+            </td>
+            <td>
+            <a href="Agreement.aspx">ותנאי החברה</a>
+            בנוגע לשימוש באתר
             </td>
         </tr>
         <tr>
-            <td>
-            </td>
-            <td>
-                <asp:Button ID="ButtonSend" runat="server" Text="הרשם" OnClick="ButtonSend_Click" />
-            </td>
+        <td class="style8">
+            <asp:Button ID="ButtonSend" runat="server" Text="הרשם" OnClick="ButtonSend_Click" />
+        </td>
         </tr>
     </table>
+    
 </asp:Content>
