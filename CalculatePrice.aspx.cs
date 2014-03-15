@@ -19,7 +19,7 @@ public partial class CalculatePrice : System.Web.UI.Page
     public void PopulateCollectingCitiesDropDown()
     {
         CityService cs = new CityService();
-        this.DropDownListCollectingCities.DataSource = cs.GetCitiesAndCenters();
+        this.DropDownListCollectingCities.DataSource = cs.GetAllCities();
         this.DropDownListCollectingCities.DataTextField = "CityName";
         this.DropDownListCollectingCities.DataValueField = "CenterID";
         this.DropDownListCollectingCities.DataBind();
@@ -28,7 +28,7 @@ public partial class CalculatePrice : System.Web.UI.Page
     public void PopulateDestinationCitiesDropDown()
     {
         CityService cs = new CityService();
-        this.DropDownListDestinationCities.DataSource = cs.GetCitiesAndCenters();
+        this.DropDownListDestinationCities.DataSource = cs.GetAllCities();
         this.DropDownListDestinationCities.DataTextField = "CityName";
         this.DropDownListDestinationCities.DataValueField = "CenterID";
         this.DropDownListDestinationCities.DataBind();
@@ -59,19 +59,6 @@ public partial class CalculatePrice : System.Web.UI.Page
                 }
                 if (price < 20)
                     price = 20;
-                //switch (temp)
-                //{
-                //    case 0: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא "+price+" ש\"ח')</script>");
-                //        break;
-                //    case 1:
-                //    case -1: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 30 ש\"ח')</script>");
-                //        break;
-                //    case 2:
-                //    case -2: Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא 40 ש\"ח')</script>");
-                //        break;
-                //    default: Response.Write("<script type=\"text/javascript\">alert('קלט לא תקין')</script>");
-                //        break;
-                //}
                 Response.Write("<script type=\"text/javascript\">alert('עלות המשלוח היא " + price + " ש\"ח')</script>");
                 PopulateCollectingCitiesDropDown();
                 PopulateDestinationCitiesDropDown();
