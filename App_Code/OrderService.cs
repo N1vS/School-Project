@@ -42,7 +42,7 @@ public class OrderService
         try
         {
             DataSet ds = new DataSet();
-            string sqlCommand = "SELECT * FROM Orders WHERE Status='InProgress' AND WorkerID="+workerID+";";
+            string sqlCommand = "SELECT * FROM Orders WHERE Status='InProgress' AND WorkerID=" + workerID + ";";
             OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
             OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
             myCon.Open();
