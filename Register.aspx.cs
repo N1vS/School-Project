@@ -53,7 +53,7 @@ public partial class Register : System.Web.UI.Page
             myCon.Open();
             if (cmd.ExecuteScalar() == null)
             {
-                string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Address,FirstName,LastName) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + address + "','" + fName + "','" + lName + "')";
+                string sqlCommand = "INSERT INTO Clients (CityID,UserName,Pass,Phone,Email,Address,FirstName,LastName) VALUES(" + cityID + ",'" + userName + "','" + pass + "','" + phone + "','" + email + "','" + address + "','" + fName + "','" + lName + "');";
                 cmd.CommandText = sqlCommand;
                 cmd.ExecuteNonQuery();
             }

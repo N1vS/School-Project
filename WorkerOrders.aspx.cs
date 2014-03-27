@@ -28,15 +28,16 @@ public partial class WorkerOrders : System.Web.UI.Page
 
     public void PopulateInProgressOrdersGridView()
     {
+        int workerID = Convert.ToInt32(Session["WorkerID"]);
         OrderService os = new OrderService();
-        this.GridViewInProgressOrders.DataSource = os.GetOrdersInProgressForWorker(Convert.ToInt32(Session["WorkerID"]));
+        this.GridViewInProgressOrders.DataSource = os.GetOrdersInProgressForWorker(workerID);
         this.GridViewInProgressOrders.DataBind();
     }
     public void PopulateDoneOrdersGridView()
     {
         OrderService os = new OrderService();
-        this.GridViewInProgressOrders.DataSource = os.GetCompletedOrdersForWorker(Convert.ToInt32(Session["WorkerID"]));
-        this.GridViewInProgressOrders.DataBind();
+        this.GridViewDoneOrders.DataSource = os.GetCompletedOrdersForWorker(Convert.ToInt32(Session["WorkerID"]));
+        this.GridViewDoneOrders.DataBind();
     }
     protected void GridViewAvailableOrders_RowCommand(object sender, GridViewCommandEventArgs e)
     {
