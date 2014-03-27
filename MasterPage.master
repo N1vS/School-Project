@@ -84,12 +84,6 @@
             </Items>
             
         </asp:Menu>
-       <%if (Session["UserDefiner"] == "Worker") {
-             MenuItem item = new MenuItem("משלוחי עובד", "WorkerOrders");
-             item.NavigateUrl = "~/WorkerOrders.aspx";
-             item.Enabled = true;
-             this.NavigationMenu.Items.Add(item);
-         } %>
         <br />
         <br />
         <br />
