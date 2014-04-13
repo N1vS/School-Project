@@ -79,4 +79,43 @@ public class OrderService
 
     }
 
+    public DataSet GetClientOrders(int clientID)
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            string sqlCommand = "SELECT * FROM Orders WHERE Status='New' OR Status='InProgress' AND ClientID=" + clientID + ";";
+            OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+            OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
+            myCon.Open();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+            adapter.Fill(ds);
+            myCon.Close();
+            return ds;
+        }
+        catch (OleDbException ex)
+        {
+            throw ex;
+        }
+    }
+    public DataSet GetClientCompletedOrders(int clientID)
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            string sqlCommand = "SELECT * FROM Orders WHERE Status='Done' AND ClientID=" + clientID + ";";
+            OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+            OleDbCommand cmd = new OleDbCommand(sqlCommand, myCon);
+            myCon.Open();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+            adapter.Fill(ds);
+            myCon.Close();
+            return ds;
+        }
+        catch (OleDbException ex)
+        {
+            throw ex;
+        }
+    }
+
 }
