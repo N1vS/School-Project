@@ -81,7 +81,7 @@
             <DynamicHoverStyle BackColor="Lime" />
             <Items>
                 <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="דף הבית" Value="Home"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/MakeOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/CreateOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/CalculatePrice.aspx" Text="חשב מחיר משלוח" Value="Calculate Price"></asp:MenuItem>                  
             </Items>            
         </asp:Menu>
@@ -119,11 +119,20 @@
         <br />
         <br />
         <br />
-        <div style="position: relative; background-color:#CEFDF3; border-radius: 200px">
+        <div style="position: relative; background-color:#CEFDF3; border-radius: 80px">
         <br />
             <center>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
+                <br /><br /><br /><br /><br /><br /><br /><br />
+                <hr />
+                <br />
+                <a>אודות</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a>כללי ותנאי האתר</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a>דף הבית</a>
+                <br />
             </center>
             <br />
         </div>
