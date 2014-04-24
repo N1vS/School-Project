@@ -70,7 +70,7 @@
         <img runat="server" src="~/Images/mishloah.jpg" width="120" height="150" />
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <img runat="server"  height="150" width="1000" />
+        <img runat="server"  height="150" width="800" />
         <br />
 
         <%if(Session["UserDefiner"]==null){ %>
@@ -94,7 +94,7 @@
             <DynamicHoverStyle BackColor="Lime" />
             <Items>
                 <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="דף הבית" Value="Home"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/MakeOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/CreateOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/CalculatePrice.aspx" Text="חשב מחיר משלוח" Value="Calculate Price"></asp:MenuItem> 
                 <asp:MenuItem NavigateUrl="~/WorkerOrders.aspx" Text="דף עובד" Value="Worker Orders"></asp:MenuItem>                 
             </Items>            
@@ -108,7 +108,7 @@
             <DynamicHoverStyle BackColor="Lime" />
             <Items>
                 <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="דף הבית" Value="Home"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/MakeOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/CreateOrder.aspx" Text="הזמן משלוח" Value="Order"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/CalculatePrice.aspx" Text="חשב מחיר משלוח" Value="Calculate Price"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/ClientOrders.aspx" Text="דף משתמש" Value="Client Orders"></asp:MenuItem>
             </Items>            
