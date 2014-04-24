@@ -23,6 +23,15 @@
     <%else
     { %>
 
+    <asp:DropDownList runat="server" ID="DropDownListChooseOrder" AutoPostBack="true">
+    <asp:ListItem Text="משלוח מהבית (כתובת הרשמה)" Value="Home"></asp:ListItem>
+    <asp:ListItem Text="משלוח מכתובת אחרת" Value="Other"></asp:ListItem>
+    </asp:DropDownList>
+    <br /><br />
+
+    <%if (this.DropDownListChooseOrder.SelectedValue == "Home")
+      { %>
+
     בחר את עיר היעד
     <br />
     <asp:DropDownList ID="DropDownListDestinationCities" runat="server">
@@ -54,7 +63,58 @@
     <br />
     <br />
     <asp:Button ID="ButtonSubmit" runat="server" Text="בצע משלוח" OnClick="ButtonSubmit_Click" />
-    <%} %>
+    <%}
+      else if (this.DropDownListChooseOrder.SelectedValue == "Other")
+      {%>
 
+      בחר את עיר המוצא
+      <br />
+      <asp:DropDownList ID="DropDownListCollectingCities" runat="server">
+      </asp:DropDownList>
+      <br /><br />
+      רשום את כתובת המוצא (רחוב + מספר)
+      <br />
+      <asp:TextBox runat="server" ID="TextBoxCollectingAddress" />
+      <br /><br />
+
+       בחר את עיר היעד
+    <br />
+    <asp:DropDownList ID="DropDownListDestinationCities2" runat="server">
+    </asp:DropDownList>
+    <br />
+    <br />
+    הכנס את הכתובת אליה תרצה לשלוח (רחוב + מספר)
+    <br />
+    <asp:TextBox ID="TextBoxAddress2" runat="server"></asp:TextBox>
+    <br />
+    <br />
+    הכנס את תיאור הפריט
+    <br />
+    <asp:TextBox ID="TextBoxItemDescription2" runat="server"></asp:TextBox>
+    <br />
+    <br />
+    הכנס את משקל הפריט
+    <br />
+    <asp:TextBox ID="TextBoxItemWeight2" runat="server"></asp:TextBox>
+    <br />
+    <br />
+    האם המשלוח דחוף?(תוספת תשלום)
+    <asp:CheckBox ID="CheckBoxUrgent2" runat="server" />
+    <br />
+    <br />
+    <br />
+    <asp:Label ID="LabelPrice2" runat="server" Text="Label"></asp:Label>
+    <asp:Button ID="ButtonPrice2" runat="server" Text="חשב מחיר" 
+        onclick="ButtonPrice2_Click" />
+    <br />
+    <br />
+    <asp:Button ID="ButtonSubmit2" runat="server" Text="בצע משלוח" 
+        onclick="ButtonSubmit2_Click"/>
+
+
+
+
+    <%}
+    } %>
 </asp:Content>
 
