@@ -163,6 +163,7 @@ public partial class CreateOrder : System.Web.UI.Page
             myCon.Open();
             cmd.ExecuteNonQuery();
             myCon.Close();
+            Response.Write("<script type=\"text/javascript\">alert('הזמנת המשלוח בוצעה בהצלחה')</script>");
         }
         catch (Exception ex)
         {
@@ -213,6 +214,7 @@ public partial class CreateOrder : System.Web.UI.Page
             myCon.Open();
             cmd.ExecuteNonQuery();
             myCon.Close();
+            Response.Write("<script type=\"text/javascript\">alert('הזמנת המשלוח בוצעה בהצלחה')</script>");
         }
         catch (Exception ex)
         {
