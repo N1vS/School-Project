@@ -5,16 +5,10 @@ using System.Web;
 using System.Data;
 using System.Data.OleDb;
 
-/// <summary>
-/// Summary description for OrderService
-/// </summary>
 public class OrderService
 {
 	public OrderService()
 	{
-		//
-		// TODO: Add constructor logic here
-		//
 	}
 
     public DataSet GetAvailableOrders()
@@ -116,6 +110,27 @@ public class OrderService
         {
             throw ex;
         }
+    }
+
+    public DataSet GetUnCompletedOrders()
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+            OleDbCommand cmd = new OleDbCommand("GetUnCompletedOrders", myCon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            OleDbDataAdapter myAdapter = new OleDbDataAdapter(cmd);
+            myCon.Open();
+            myAdapter.Fill(ds);
+            myCon.Close();
+            return ds;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
     }
 
 }

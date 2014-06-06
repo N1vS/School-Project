@@ -144,7 +144,21 @@
         </tr>
         <tr>
             <td class="style9">
+                
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="TextBoxID" Display="Dynamic" ErrorMessage="הכנס תעודת זהות תקינה" ForeColor="Red" ValidationExpression="/d{9}">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TextBoxID" Display="Dynamic" ErrorMessage="הכנס תעודת זהות תקינה" ForeColor="Red">*</asp:RequiredFieldValidator>
+                
+                תעודת זהות :
+            </td>
+            <td>
+                <asp:TextBox ID="TextBoxID" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="style9">
                 עיר :
+            ר :
             </td>
             <td class="style3">
                 <asp:DropDownList ID="DropDownListCities" runat="server">

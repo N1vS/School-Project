@@ -5,9 +5,6 @@ using System.Web;
 using System.Data;
 using System.Data.OleDb;
 
-/// <summary>
-/// Summary description for UserService
-/// </summary>
 public class UserService
 {
 	public UserService()
@@ -32,11 +29,6 @@ public class UserService
         catch (OleDbException ex)
         {
             throw ex;
-        }
-        
-
-
+        }     
     }
-
-
 }

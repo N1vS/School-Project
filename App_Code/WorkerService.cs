@@ -5,9 +5,6 @@ using System.Web;
 using System.Data;
 using System.Data.OleDb;
 
-/// <summary>
-/// Summary description for WorkerService
-/// </summary>
 public class WorkerService
 {
 	public WorkerService()
@@ -33,6 +30,26 @@ public class WorkerService
 
         }
         catch (OleDbException ex)
+        {
+            throw ex;
+        }
+
+    }
+    public DataSet GetUnActiveWorkers()
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            OleDbConnection myCon = new OleDbConnection(Connect.getConnectionString());
+            OleDbCommand cmd = new OleDbCommand("GetUnActiveWorkers", myCon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            OleDbDataAdapter myAdapter = new OleDbDataAdapter(cmd);
+            myCon.Open();
+            myAdapter.Fill(ds);
+            myCon.Close();
+            return ds;
+        }
+        catch (Exception ex)
         {
             throw ex;
         }

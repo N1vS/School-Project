@@ -5,9 +5,6 @@ using System.Web;
 using System.Data;
 using System.Data.OleDb;
 
-/// <summary>
-/// Summary description for Connect
-/// </summary>
 public class Connect
 {
     const string filename = "Delivery Company Database.mdb";
